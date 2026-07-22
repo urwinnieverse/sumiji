@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    height: 100vh;
+    width: 100%;
+    background-image: url(background-tile.png);
+    background-size: 1.5%;
+    background-repeat: repeat;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+header {
+
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    background-image: url(header.png);
+    background-size: 75%;
+    background-repeat: repeat;
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+}
+
+#logo {
+
+    height: 80%;
+    width: auto;
+    align-self: center;
+    justify-self: center;
+
+}
+.app-type {
+
+    background: none;
+    border: none;
+    width: max-content;
+    padding: 1%;
+    font-family: "Hina Mincho";
+    color: #532E18;
+    font-size: 1.4rem;
+    text-align: center;
+   
+
+}
+
+a{cursor: pointer;
+    position: relative;
+z-index: 1000;
+text-decoration: none;}
+
+.app-type:hover {
+    text-decoration: underline;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#shuffle {
+    position: absolute;
+    background-color: transparent;
+    background-image: url(shuffle.png);
+    background-size: cover;
+    background-position: center;
+    border: none;
+    height: 13vh;
+    width: 13vh;
+    bottom: 13vh;
+    right: 45vh;
+    cursor: pointer;
+}
+#kanji-p{perspective: 1000px}
+.card {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    width: 80vh;
+    background-color: #D998B8;
+    cursor: pointer;
+
+    -webkit-mask:
+        radial-gradient(circle at left center, transparent 20px, white 16px),
+        radial-gradient(circle at right center, transparent 20px, white 16px),
+        radial-gradient(circle at left top, transparent 40px, white 16px),
+        radial-gradient(circle at right top, transparent 40px, white 16px),
+        radial-gradient(circle at left bottom, transparent 40px, white 16px),
+        radial-gradient(circle at right bottom, transparent 40px, white 16px);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+
+}
+
+.card-inner {
+
+position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+
+}
+
+.card.is-flipped {
+    transform: rotateY(360deg);
+}
+.card-inner.is-flipped{
+transform:rotateY(180deg);
+
+}
+
+.card-front,
+.card-back {
+
+    position: absolute;
+    height: 75%;
+    width: 80%;
+    border: 3px #AF6B8C solid;
+    background-color: #D998B8;
+    border-radius: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    box-sizing: border-box;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+#back-butom,#back-top{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+#back-mid{
+   width: 100%;
+    border-right: none;
+    border-left: none;
+    border-top: 3px dashed #AF6B8C ;
+    border-bottom: 3px dashed #AF6B8C ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+
+}
+
+.card-data {
+
+    font-family: "Inter";
+    color: #AF6B8C;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+
+#nstamp{
+
+    background-color: #AF6B8C;
+    border-radius: 100%;
+    position: absolute;
+    height: 9vh;
+    width: 9vh;
+    top: 3%;
+    right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     font-size: 1.8rem;
+    font-family:"Inter" ;
+    color: #D998B8;
+    transform: rotate(20deg);
+
+}
+
+#eng-kan,#eng-hir{
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 7%;
+    height: 100%;
+
+
+}
+
+#eng-kan{
+
+    border-right: 3px dashed #AF6B8C ;
+    border-left: none;
+    border-top: none;
+    border-bottom: none ;
+
+
+}
+
+
+#content {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    padding: 20px;
+    z-index: 10;
+    gap: 25px;
+    color: #532E18;
+    font-family: "Happy Monkey";
+}
+
+h2{
+
+    margin: -7px;
+    font-family: Copperplate,fantasy;
+    font-size: 1.7rem;
+    font-family: "Happy Monkey";
+}
+
+.title {
+
+    font-size: 7rem;
+    margin: 10px;
+    margin-top: 0px;
+    font-family: Sour Gummy;
+    font-weight: 400;
+    font-style: italic;
+        font-family: "Happy Monkey";
+
+}
