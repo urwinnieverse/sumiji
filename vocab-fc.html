@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Hina+Mincho&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
+        <script src="https://js.puter.com/v2/"></script>    
     <script src="sumiji.js" defer></script>
 </head>
 
@@ -18,7 +19,7 @@
     <header>
 
         <a href="kanji-fc.html" id="kanji-but" class="app-type">Kanji flashcard</a>
-            <img src="sumiji-logo.png" id="logo">
+       <img src="sumiji-logo.png" id="logo"> 
         <a href="vocab-fc.html" id="vocab-but" class="app-type">Vocabulary flashcard</a>
 
     </header>
@@ -30,7 +31,7 @@
 
                 <div id="kanjicard-f" class="card-front">
 
-                    <h4 id="english-meaning" class="card-data" style="font-size: 2rem;">Fire</h4>
+                    <h4 id="english-meaning" class="card-data">Fire</h4>
 
                 </div>
 
@@ -40,11 +41,11 @@
                     </div>
                     <div id="eng-kan">
                         <p class="card-data">Kanji</p>
-                        <h1 id="Kanji" class="card-data" style="font-size: 2rem;">火</h1>
+                        <h1 id="Kanji" class="card-data" style="font-size: 1rem;">火</h1>
                     </div>
                     <div id="eng-hir">
                         <p class="card-data">Hiragana</p>
-                        <h1 id="hiragana" class="card-data" style="font-size: 2rem;">ひ</h1>
+                        <h1 id="hiragana" class="card-data" ">ひ</h1>
                     </div>
                 </div>
 
@@ -52,12 +53,16 @@
             </div>
 
         </div>
-    </div>
+
+        <div id="buttons">
+            <button id="shuffle"></button>
+            <button id="speaker"></button>
+        </div>
 
     </div>
 
 
-    <button id="shuffle"></button>
+
 
 
 </body>

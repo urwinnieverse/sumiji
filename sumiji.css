@@ -33,8 +33,10 @@ header {
     background-image: url(header.png);
     background-size: 75%;
     background-repeat: repeat;
+    background-position: center;
     position: fixed;
     top: 0px;
+    left: 0px;
     z-index: 1000;
 }
 
@@ -46,6 +48,7 @@ header {
     justify-self: center;
 
 }
+
 .app-type {
 
     background: none;
@@ -56,14 +59,16 @@ header {
     color: #532E18;
     font-size: 1.4rem;
     text-align: center;
-   
+
 
 }
 
-a{cursor: pointer;
+a {
+    cursor: pointer;
     position: relative;
-z-index: 1000;
-text-decoration: none;}
+    z-index: 1000;
+    text-decoration: none;
+}
 
 .app-type:hover {
     text-decoration: underline;
@@ -76,23 +81,48 @@ text-decoration: none;}
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
 }
 
+#buttons {
+
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    height: max-content;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+
+}
 
 #shuffle {
-    position: absolute;
     background-color: transparent;
-    background-image: url(shuffle.png);
+    background-image: url(shuffle.svg);
     background-size: cover;
     background-position: center;
     border: none;
     height: 13vh;
     width: 13vh;
-    bottom: 13vh;
-    right: 45vh;
     cursor: pointer;
 }
-#kanji-p{perspective: 1000px}
+
+#speaker {
+    background-color: transparent;
+    background-image: url(speaker.svg);
+    background-size: cover;
+    background-position: center;
+    border: none;
+    height: 13vh;
+    width: 13vh;
+    cursor: pointer;
+}
+
+#kanji-p {
+    perspective: 1000px
+}
+
 .card {
 
     display: flex;
@@ -105,23 +135,23 @@ text-decoration: none;}
     cursor: pointer;
 
     -webkit-mask:
-        radial-gradient(circle at left center, transparent 20px, white 16px),
-        radial-gradient(circle at right center, transparent 20px, white 16px),
-        radial-gradient(circle at left top, transparent 40px, white 16px),
-        radial-gradient(circle at right top, transparent 40px, white 16px),
-        radial-gradient(circle at left bottom, transparent 40px, white 16px),
-        radial-gradient(circle at right bottom, transparent 40px, white 16px);
+        radial-gradient(circle at left center, transparent 20px, white 20px),
+        radial-gradient(circle at right center, transparent 20px, white 20px),
+        radial-gradient(circle at left top, transparent 40px, white 40px),
+        radial-gradient(circle at right top, transparent 40px, white 40px),
+        radial-gradient(circle at left bottom, transparent 40px, white 40px),
+        radial-gradient(circle at right bottom, transparent 40px, white 40px);
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
 
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
 
 }
 
 .card-inner {
 
-position: relative;
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -135,8 +165,9 @@ position: relative;
 .card.is-flipped {
     transform: rotateY(360deg);
 }
-.card-inner.is-flipped{
-transform:rotateY(180deg);
+
+.card-inner.is-flipped {
+    transform: rotateY(180deg);
 
 }
 
@@ -162,7 +193,9 @@ transform:rotateY(180deg);
 .card-back {
     transform: rotateY(180deg);
 }
-#back-butom,#back-top{
+
+#back-butom,
+#back-top {
 
     display: flex;
     flex-direction: row;
@@ -171,17 +204,21 @@ transform:rotateY(180deg);
 
 }
 
-#back-mid{
-   width: 100%;
+#back-mid {
+    width: 100%;
     border-right: none;
     border-left: none;
-    border-top: 3px dashed #AF6B8C ;
-    border-bottom: 3px dashed #AF6B8C ;
+    border-top: 3px dashed #AF6B8C;
+    border-bottom: 3px dashed #AF6B8C;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5%;
 
+}
+
+#Kanji{
+    font-size: 4rem; font-weight: 500;
 }
 
 .card-data {
@@ -193,8 +230,12 @@ transform:rotateY(180deg);
     text-align: center;
 }
 
+#english-meaning{
+    font-size: 2rem;
+}
 
-#nstamp{
+
+#nstamp {
 
     background-color: #AF6B8C;
     border-radius: 100%;
@@ -206,14 +247,15 @@ transform:rotateY(180deg);
     display: flex;
     align-items: center;
     justify-content: center;
-     font-size: 1.8rem;
-    font-family:"Inter" ;
+    font-size: 1.8rem;
+    font-family: "Inter";
     color: #D998B8;
     transform: rotate(20deg);
 
 }
 
-#eng-kan,#eng-hir{
+#eng-kan,
+#eng-hir {
 
     display: flex;
     flex-direction: column;
@@ -225,12 +267,12 @@ transform:rotateY(180deg);
 
 }
 
-#eng-kan{
+#eng-kan {
 
-    border-right: 3px dashed #AF6B8C ;
+    border-right: 3px dashed #AF6B8C;
     border-left: none;
     border-top: none;
-    border-bottom: none ;
+    border-bottom: none;
 
 
 }
@@ -250,10 +292,10 @@ transform:rotateY(180deg);
     font-family: "Happy Monkey";
 }
 
-h2{
+h2 {
 
     margin: -7px;
-    font-family: Copperplate,fantasy;
+    font-family: Copperplate, fantasy;
     font-size: 1.7rem;
     font-family: "Happy Monkey";
 }
@@ -266,6 +308,93 @@ h2{
     font-family: Sour Gummy;
     font-weight: 400;
     font-style: italic;
-        font-family: "Happy Monkey";
+    font-family: "Happy Monkey";
+
+}
+
+@media screen and (max-width: 767px) {
+
+    #logo {
+
+        height: 55%;
+
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .app-type {
+
+        text-wrap: wrap;
+        
+
+
+    }
+
+    .container{
+
+        padding-top: 0px;
+
+    }
+
+    .card {
+
+        height: 25vh;
+        width: 45vh;
+
+
+        -webkit-mask:
+            radial-gradient(circle at left center, transparent 15px, white 15px),
+            radial-gradient(circle at right center, transparent 15px, white 15px),
+            radial-gradient(circle at left top, transparent 30px, white 30px),
+            radial-gradient(circle at right top, transparent 30px, white 30px),
+            radial-gradient(circle at left bottom, transparent 30px, white 30px),
+            radial-gradient(circle at right bottom, transparent 30px, white 30px);
+        -webkit-mask-composite: source-in;
+        mask-composite: intersect;
+
+    }
+
+    #Kanji{
+
+        font-size: 2rem;
+        font-weight: 700 ;
+
+    }
+
+    #nstamp{
+
+        height: 4.5vh;
+        width: 4.5vh;
+         font-size: 1rem;
+
+    }
+
+    .card-data{
+
+         font-size: 1rem;
+    }
+
+    #english-meaning{
+
+        font-size: 1.2rem;
+    }
+
+    #shuffle,#speaker{
+
+        height: 6.5vh;
+        width: 6.5vh;
+
+    }
+
+    #buttons{
+
+        justify-content: center;
+
+    }
+
+
+
 
 }

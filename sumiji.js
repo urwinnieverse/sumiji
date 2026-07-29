@@ -12,6 +12,7 @@ const nLevelBack = document.getElementById('nlevel-back');
 const nStarsText = document.getElementById('nstars');
 
 const shuffleBtn = document.getElementById('shuffle'); 
+const speakerBtn = document.getElementById('speaker');
 
 async function loadKanjiDeck() {
   try {
@@ -83,5 +84,56 @@ if (shuffleBtn) {
     displayCard(currentIndex);
   });
 }
+
+if (speakerBtn) {
+  speakerBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    const currentKanji = document.getElementById('Kanji')?.textContent;
+
+    playKanjiAudio(currentKanji);
+  });
+}
+
+
+
+function playKanjiAudio(text) {
+  if (!text) return;
+
+  const cleanText = text.trim();
+
+  // 1. Check if browser has a native Japanese voice installed (e.g. Chrome)
+  const voices = window.speechSynthesis.getVoices();
+  const hasJpVoice = voices.some(v => v.lang === 'ja-JP' || v.lang.startsWith('ja'));
+
+  if ('speechSynthesis' in window && hasJpVoice) {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = 'ja-JP';
+    utterance.rate = 0.85;
+
+    const jpVoice = voices.find(v => v.lang === 'ja-JP' || v.lang.startsWith('ja'));
+    if (jpVoice) utterance.voice = jpVoice;
+
+    window.speechSynthesis.speak(utterance);
+    console.log("Playing via Native Speech:", cleanText);
+    return;
+  }
+
+  // 2. Puter.js Fallback for Firefox (Handles CORS/ORB automatically!)
+  if (typeof puter !== 'undefined' && puter.ai) {
+    console.log("Fallback to Puter.js TTS:", cleanText);
+    puter.ai.txt2speech(cleanText, "ja-JP")
+      .then((audio) => {
+        audio.play();
+      })
+      .catch((err) => {
+        console.error("Puter TTS Error:", err);
+      });
+  } else {
+    console.error("Puter SDK is not loaded in HTML!");
+  }
+}
+
 
 loadKanjiDeck();
