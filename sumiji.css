@@ -277,6 +277,13 @@ a {
 
 }
 
+#eng-kan #Kanji{
+
+   font-size: 1.3rem;
+   font-weight: 700;
+
+}
+
 
 #content {
 
@@ -361,6 +368,11 @@ h2 {
         font-size: 2rem;
         font-weight: 700 ;
 
+    }
+
+    #eng-kan #Kanji{
+
+        font-size:1rem;
     }
 
     #nstamp{
